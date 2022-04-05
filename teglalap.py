@@ -4,25 +4,25 @@ bekeres = Tk()
 def adatok():
     kiiratas = Tk()
 
-    felszinszoveg = Label(kiiratas, text = "Felszín: ")
-    felszinszoveg.grid(column = 0, row = 1)
-    felszin = Entry(kiiratas)
-    felszin.grid(column = 1, row = 1)
-
-    terfogatszoveg = Label(kiiratas, text = "Térfogat: ")
+    terfogatszoveg = Label(kiiratas, text = "Térfogat (cm3): ")
     terfogatszoveg.grid(column = 0, row = 0)
     terfogat = Entry(kiiratas)
     terfogat.grid(column = 1, row = 0)
+
+    felszinszoveg = Label(kiiratas, text = "Felszín (cm2): ")
+    felszinszoveg.grid(column = 0, row = 1)
+    felszin = Entry(kiiratas)
+    felszin.grid(column = 1, row = 1)
 
     Aadat = int(A.get())
     Badat = int(B.get())
     Cadat = int(C.get())
 
     terfogatszamitas = Aadat * Badat * Cadat
-    terfogat.insert(terfogatszamitas)
+    terfogat.insert(0, terfogatszamitas)
 
-
-
+    felszinszamitas = 2 * (Aadat * Badat) * (Aadat * Cadat) * (Badat * Cadat) / 100
+    felszin.insert(0, felszinszamitas)
 
     kiiratas.mainloop()
 
